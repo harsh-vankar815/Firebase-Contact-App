@@ -1,0 +1,66 @@
+using Firebase and TailwindCSS
+
+To ham VS Code ke andar hi browser ko la sakte hai
+    shift+CTRL+p 
+    simple browser
+    and paste our url
+
+h-[60px] this is for inserting manual values
+
+Fetching the Data from Firebase
+    first aapre collection import karishu pachhi aena ma firestore nu reference pass karishu
+    Go to config and pass the last line db reference
+
+    snap shot me hamara data rehta hai
+    fir ham snapshot ko console log karenge aur apne banaye huye firebase pe array ko dhundhenge aur usse access karenge
+    to uske liye hame ek aur label lena padega
+
+    to hame array mil chuka hai lekin koi unique id nahi mil raha hai to hame yaha pe id bhi chahiye
+
+Modal Chakra ui ek hamari library hai, to jaisse hi ham modal pe click karenge to ek pop up aayega
+
+to jo bhi modal hota hai na usme ek chiz kafi important hota hai ki hame portal ka use karna chahiye, to portal ka use isiliye karna chahiye kyuki ye jo positions properties dikh rahi hai na isme css ki vajah se hamesh koi upar niche ho to problem hoti hai to vo dikkat agar hame face ho rahi hai to hame portal ka use karna hai
+to iske liye ham log import kar lenge createportal aur isse return createPortal() aur uske baad mai hame , karke id dena hai ki kahi pe ham host karna chahte hai aur fir ham use id ko index.html me dalenge
+
+to Simple se kya hoga ki, jab mai iss + plus ke icon par click karunga to ye sara Modal ka content modal-root ke andar aa jayega
+
+too ham isme form ko handle karne ke liye formik external library ka use karenge
+
+formik ke upar sabse pehle to hame ek initial value ko set karna padta hai
+Ek dhyan rakhvu ke modules thick thi import thava joiye
+    const addContact = async (contact) => {
+        try {
+            const contactRef = collection(db, "contacts")
+            await addDoc(contactRef, contact)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+                OR 
+    const deleteContact = async (id) => {
+        try {
+            await deleteDoc(doc(db, "contacts", id))
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+
+
+to ham ek custom hook banayenge iske liye
+  const [isOpen, setIsOpen] = useState(false)
+  const onOpen = () => { setIsOpen(true) }
+  const onClose = () => { setIsOpen(false) }
+To ham src me ek folder banayenge hooks naam se aur ham isme useDisclouse name se ek js file banayenge Aur ye Js file hogi
+
+aur uske baad ham rafce me ye sara upar vala content dal denge aur fir ham jsx ko return karne ki jagah function ye value ko pass karenge for ex...   return {onClose, isOpen, onOpen }
+
+to ab ab usestate ki jagah useDisclouse likhenge aur usme empty bracket rakhenge
+
+
+too hame ye jo bar bar reload karna pad raha hai na usse ham firebase ki ek functionality se thick kar sakte hai to jaha par ham data fetch yani ki getContact banaya hai vahi file me use karenge onSnapshot
+
+
+to agar ham plus pe click karke aise hi add karte hai to ek empty data add ho jaraha hai to iske liye hame form ke upar ek security layer lagana padega, to hame ek validation lagana padega, to iske liye hamlog Yup ka use kar sakte hai
+
+aur Yup ko sirf Formik hi support karta hai
